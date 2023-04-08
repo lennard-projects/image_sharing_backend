@@ -15,7 +15,7 @@ export const createPost = async (req, res) => {
 export const getPosts = async (req, res) => {
     const { page } = req.query
     try {
-        const LIMIT = 2
+        const LIMIT = 5
         const startIndex = (Number(page) - 1) * LIMIT
         const posts = await Post.find().sort({ _id: -1}).limit(LIMIT).skip(startIndex)
         const lastPage = await Post.countDocuments()
